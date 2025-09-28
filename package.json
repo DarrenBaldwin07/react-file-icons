@@ -1,14 +1,14 @@
 {
-	"name": "package-name",
-	"description": "Package description",
+	"name": "reactjs-file-icons",
+	"description": "React File Icons",
 	"version": "0.0.1",
 	"repository": {
 		"type": "git",
-		"url": "https://repoUrl.com"
+		"url": "https://github.com/DarrenBaldwin07/react-file-icons"
 	},
-	"main": "./dist/package-name.umd.js",
-	"module": "./dist/package-name.es.js",
-	"typings": "./dist/package-name.es.d.ts",
+	"main": "./dist/reactjs-file-icons.umd.js",
+	"module": "./dist/reactjs-file-icons.es.js",
+	"typings": "./dist/reactjs-file-icons.es.d.ts",
 	"files": [
 		"dist",
 		"README.md"
