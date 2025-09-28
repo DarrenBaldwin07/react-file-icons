@@ -26,7 +26,9 @@ export function getFileIcon(fileName: string): IconComponent {
 
 	// Try to match by extension
 	if (extension) {
-		const extensionMatch = (extensions as ExtensionsMap)[extension.toLowerCase()];
+		const extensionMatch = (extensions as ExtensionsMap)[
+			extension.toLowerCase()
+		];
 		if (extensionMatch) {
 			return extensionMatch;
 		}
@@ -44,11 +46,11 @@ export function getFileIcon(fileName: string): IconComponent {
 export function getFileExtension(fileName: string): string | null {
 	// Handle compound extensions like .d.ts, .spec.ts, etc.
 	const parts = fileName.split('.');
-	
+
 	if (parts.length < 2) {
 		return null; // No extension
 	}
-	
+
 	// For compound extensions, try the full compound first
 	if (parts.length >= 3) {
 		const compoundExtension = parts.slice(-2).join('.');
@@ -56,7 +58,7 @@ export function getFileExtension(fileName: string): string | null {
 			return compoundExtension;
 		}
 	}
-	
+
 	// Return the last part as extension
 	return parts[parts.length - 1];
 }
@@ -67,12 +69,15 @@ export function getFileExtension(fileName: string): string | null {
  * @param expectedExtension - The extension to check for (with or without dot)
  * @returns Boolean indicating if the file has the expected extension
  */
-export function hasExtension(fileName: string, expectedExtension: string): boolean {
+export function hasExtension(
+	fileName: string,
+	expectedExtension: string,
+): boolean {
 	const extension = getFileExtension(fileName);
-	const cleanExpected = expectedExtension.startsWith('.') 
-		? expectedExtension.slice(1) 
+	const cleanExpected = expectedExtension.startsWith('.')
+		? expectedExtension.slice(1)
 		: expectedExtension;
-	
+
 	return extension?.toLowerCase() === cleanExpected.toLowerCase();
 }
 
@@ -94,7 +99,9 @@ export function getFileIconSuggestions(fileName: string): IconComponent[] {
 	// Add extension match
 	const extension = getFileExtension(cleanFileName);
 	if (extension) {
-		const extensionMatch = (extensions as ExtensionsMap)[extension.toLowerCase()];
+		const extensionMatch = (extensions as ExtensionsMap)[
+			extension.toLowerCase()
+		];
 		if (extensionMatch && extensionMatch !== exactMatch) {
 			suggestions.push(extensionMatch);
 		}
